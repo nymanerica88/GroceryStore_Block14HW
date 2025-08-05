@@ -29,7 +29,7 @@ function logNames(items) {
   items.forEach((item) => {
     console.log(item.name);
     //function named logNames; items (as an array) is the argument
-    //items.forEach(): this calls the forEach loop on the items array
+    //items.forEach(): this calls the forEach function for each item in the items array
     // (item) => {console.log(item.name);}: item is the current element being processed in the loop; item.name is accessing a property named "name" on an object/element named 'item'
   });
 }
@@ -53,6 +53,9 @@ function getUppercaseNames(items) {
 function getItemById(items, id) {
   return items.find((item) => item.id === id);
 }
+//function named getItemById; items (as an array) is argument #1, id (of array) is argument #2
+//return tells the function what to output
+//
 
 /**
  * @param {Item[]} items - array of items
@@ -94,7 +97,6 @@ function getTotalPrice(items) {
   return items.reduce((accumulator, sumtotalPrice) => {
     return accumulator + sumtotalPrice.price;
   }, 0);
-  // TODO: use `reduce`
 }
 
 // === READ BUT DO NOT CHANGE THE CODE BELOW ===
