@@ -26,7 +26,12 @@ const inventory = [
  * @param {Item[]} items - array of items
  */
 function logNames(items) {
-  // TODO: use `forEach`
+  items.forEach((item) => {
+    console.log(item.name);
+    //function named logNames; items (as an array) is the argument
+    //items.forEach(): this calls the forEach loop on the items array
+    // (item) => {console.log(item.name);}: item is the current element being processed in the loop; item.name is accessing a property named "name" on an object/element named 'item'
+  });
 }
 
 /**
@@ -34,7 +39,10 @@ function logNames(items) {
  * @returns {string[]} an array of item names in all uppercase
  */
 function getUppercaseNames(items) {
-  // TODO: use `map`
+  return items.map((item) => item.name.toUpperCase());
+  // function named getUppercaseNames; items (as an array) is the argument
+  // return tells the function what to output
+  // items.map: creates a new array by applying the function to every element in the original array
 }
 
 /**
@@ -43,7 +51,7 @@ function getUppercaseNames(items) {
  * @returns {Item} - the item in `items` with the given `id`
  */
 function getItemById(items, id) {
-  // TODO: use `find`
+  return items.find((item) => item.id === id);
 }
 
 /**
@@ -52,7 +60,11 @@ function getItemById(items, id) {
  * @returns {number} the price of the item named `name` if found
  */
 function getItemPriceByName(items, name) {
-  // TODO: use a loop!
+  for (const item of items) {
+    if (item.name === name) {
+      return item.price;
+    }
+  }
 }
 
 /**
@@ -61,7 +73,7 @@ function getItemPriceByName(items, name) {
  * @returns {Item[]} array of items that belong to the given `category`
  */
 function getItemsByCategory(items, category) {
-  // TODO: use `filter`
+  return items.filter((item) => item.category === category);
 }
 
 /**
@@ -69,7 +81,9 @@ function getItemsByCategory(items, category) {
  * @returns {number} the total quantity of all items
  */
 function countItems(items) {
-  // TODO: use `reduce`
+  return items.reduce((accumulator, numItems) => {
+    return accumulator + numItems.quantity;
+  }, 0);
 }
 
 /**
@@ -77,6 +91,9 @@ function countItems(items) {
  * @returns {number} the cost of all given items
  */
 function getTotalPrice(items) {
+  return items.reduce((accumulator, sumtotalPrice) => {
+    return accumulator + sumtotalPrice.price;
+  }, 0);
   // TODO: use `reduce`
 }
 
